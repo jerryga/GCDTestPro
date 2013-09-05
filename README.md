@@ -14,7 +14,9 @@ GCDTestPro
   	+ (void)testGCDGroup;
   	+ (void)testApply;
   	
-[Corresponding Blog](http://jerryga.github.io/blog/2013/08/30/gcd/): 
+[Corresponding Blog](http://jerryga.github.io/blog/2013/08/30/gcd/)
+
+
 This project will update continuously.
 If you have any question, you can contact me by gmail.
 Copyright (c) 2013 JerryGaGa <staticga@gmail.com>
