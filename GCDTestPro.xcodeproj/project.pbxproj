@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC7E05CF17D5D2C1001740C0 /* GCDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7E05CE17D5D2C0001740C0 /* GCDManager.m */; };
 		FCDB829A17D046CA00DB1EDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB829917D046CA00DB1EDF /* UIKit.framework */; };
 		FCDB829C17D046CA00DB1EDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB829B17D046CA00DB1EDF /* Foundation.framework */; };
 		FCDB829E17D046CA00DB1EDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB829D17D046CA00DB1EDF /* CoreGraphics.framework */; };
@@ -16,9 +17,13 @@
 		FCDB82AC17D046CA00DB1EDF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FCDB82AB17D046CA00DB1EDF /* Default.png */; };
 		FCDB82AE17D046CA00DB1EDF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCDB82AD17D046CA00DB1EDF /* Default@2x.png */; };
 		FCDB82B017D046CA00DB1EDF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCDB82AF17D046CA00DB1EDF /* Default-568h@2x.png */; };
+		FCDB82B817D046F600DB1EDF /* GCDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB82B717D046F600DB1EDF /* GCDTool.m */; };
+		FCDB82BB17D0471100DB1EDF /* Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCDB82BA17D0471100DB1EDF /* Test.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC7E05CD17D5D2C0001740C0 /* GCDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDManager.h; sourceTree = "<group>"; };
+		FC7E05CE17D5D2C0001740C0 /* GCDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDManager.m; sourceTree = "<group>"; };
 		FCDB829617D046CA00DB1EDF /* GCDTestPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDTestPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDB829917D046CA00DB1EDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FCDB829B17D046CA00DB1EDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -32,6 +37,9 @@
 		FCDB82AB17D046CA00DB1EDF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FCDB82AD17D046CA00DB1EDF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FCDB82AF17D046CA00DB1EDF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FCDB82B617D046F600DB1EDF /* GCDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDTool.h; path = GCDTool/GCDTool.h; sourceTree = "<group>"; };
+		FCDB82B717D046F600DB1EDF /* GCDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDTool.m; path = GCDTool/GCDTool.m; sourceTree = "<group>"; };
+		FCDB82BA17D0471100DB1EDF /* Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +86,11 @@
 		FCDB829F17D046CA00DB1EDF /* GCDTestPro */ = {
 			isa = PBXGroup;
 			children = (
+				FCDB82BA17D0471100DB1EDF /* Test.txt */,
 				FCDB82A817D046CA00DB1EDF /* AppDelegate.h */,
 				FCDB82A917D046CA00DB1EDF /* AppDelegate.m */,
 				FCDB82A017D046CA00DB1EDF /* Supporting Files */,
+				FCDB82B917D046FE00DB1EDF /* GCDTool */,
 			);
 			path = GCDTestPro;
 			sourceTree = "<group>";
@@ -97,6 +107,17 @@
 				FCDB82AF17D046CA00DB1EDF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCDB82B917D046FE00DB1EDF /* GCDTool */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB82B617D046F600DB1EDF /* GCDTool.h */,
+				FCDB82B717D046F600DB1EDF /* GCDTool.m */,
+				FC7E05CD17D5D2C0001740C0 /* GCDManager.h */,
+				FC7E05CE17D5D2C0001740C0 /* GCDManager.m */,
+			);
+			name = GCDTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +175,7 @@
 				FCDB82AC17D046CA00DB1EDF /* Default.png in Resources */,
 				FCDB82AE17D046CA00DB1EDF /* Default@2x.png in Resources */,
 				FCDB82B017D046CA00DB1EDF /* Default-568h@2x.png in Resources */,
+				FCDB82BB17D0471100DB1EDF /* Test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +188,8 @@
 			files = (
 				FCDB82A617D046CA00DB1EDF /* main.m in Sources */,
 				FCDB82AA17D046CA00DB1EDF /* AppDelegate.m in Sources */,
+				FCDB82B817D046F600DB1EDF /* GCDTool.m in Sources */,
+				FC7E05CF17D5D2C1001740C0 /* GCDManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +302,7 @@
 				FCDB82B517D046CA00DB1EDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
