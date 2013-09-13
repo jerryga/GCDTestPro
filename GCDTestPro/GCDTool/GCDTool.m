@@ -10,6 +10,7 @@
 
 @interface GCDTool ()
 {
+    NSSet *runLoopModes;
     dispatch_queue_t myQueue;
     BOOL isValid;
 }
@@ -168,4 +169,131 @@
     //223 823 
 }
 
++ (void)testThreadCount {
+#if 0
+    dispatch_queue_t asyQueue1 = dispatch_queue_create("com.Test.gcd001", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue2 = dispatch_queue_create("com.Test.gcd002", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue3 = dispatch_queue_create("com.Test.gcd003", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue4 = dispatch_queue_create("com.Test.gcd004", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue5 = dispatch_queue_create("com.Test.gcd005", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue6 = dispatch_queue_create("com.Test.gcd006", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue7 = dispatch_queue_create("com.Test.gcd007", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue8 = dispatch_queue_create("com.Test.gcd008", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue9 = dispatch_queue_create("com.Test.gcd009", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t asyQueue10 = dispatch_queue_create("com.Test.gcd0010", DISPATCH_QUEUE_CONCURRENT);
+
+    dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_async(asyQueue2, ^{
+        NSLog(@"queue2 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_async(asyQueue3, ^{
+        NSLog(@"queue3 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_async(asyQueue4, ^{
+        NSLog(@"queue4 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_async(asyQueue5, ^{
+        NSLog(@"queue5 %@",[NSThread currentThread]);
+    });
+    dispatch_async(asyQueue6, ^{
+        NSLog(@"queue6 %@",[NSThread currentThread]);
+    });
+    dispatch_async(asyQueue7, ^{
+        NSLog(@"queue7 %@",[NSThread currentThread]);
+    });dispatch_async(asyQueue8, ^{
+        NSLog(@"queue8 %@",[NSThread currentThread]);
+    });dispatch_async(asyQueue9, ^{
+        NSLog(@"queue9 %@",[NSThread currentThread]);
+    });dispatch_async(asyQueue10, ^{
+        NSLog(@"queue10 %@",[NSThread currentThread]);
+    });
+#endif
+    dispatch_queue_t asyQueue1 = dispatch_queue_create("com.Test.gcd", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    }); dispatch_async(asyQueue1, ^{
+        NSLog(@"queue1 %@",[NSThread currentThread]);
+    });
+}
+
+- (NSSet *) getRunModes {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        runLoopModes = [NSSet setWithObject:NSRunLoopCommonModes];
+    });
+    return runLoopModes;
+}
+
++ (void)testRunLoop {
+    GCDTool *tool = [[GCDTool alloc] init];
+    [self performSelector:@selector(cancelConnection) onThread:[GCDTool getTestThread] withObject:nil waitUntilDone:YES modes:[[tool getRunModes] allObjects]];
+
+}
+
++ (NSThread *)getTestThread {
+    NSThread *networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
+    [networkRequestThread start];
+    return networkRequestThread;
+}
+
++ (void)networkRequestThreadEntryPoint:(id)__unused object {
+    @autoreleasepool {
+        [[NSThread currentThread] setName:@"GCDToolTesting"];
+        
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+        NSLog(@"running %@",runLoop.currentMode);
+    }
+}
+
++ (void)cancelConnection {
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    NSLog(@"running %@",runLoop.currentMode);
+
+    NSLog(@"testConnection %d",[NSThread isMainThread]);
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

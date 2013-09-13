@@ -18,4 +18,7 @@
 
 + (void)testGCDGroup;
 + (void)testApply;
+
++ (void)testThreadCount;
++ (void)testRunLoop;
 @end
